@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itgenius-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: itgenius
+  template:
+    metadata:
+      labels:
+        app: itgenius
+    spec:
+      containers:
+        - name: itgenius-container
+          image: itgeniusdevops/itgenius-app-project-repo:v001
+          ports:
+            - containerPort: 8085
+          env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: itgenius-config
+                  key: DB_URL
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: itgenius-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: itgenius-secret
+                  key: DB_PASSWORD
+            - name: SERVER_PORT
+              value: "8085"
