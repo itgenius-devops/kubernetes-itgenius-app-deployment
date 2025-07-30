@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: itgenius-config
+data:
+  DB_URL: "jdbc:mysql://itgeniusdb.cfouo2oco23b.us-east-1.rds.amazonaws.com:3306/itgeniusdb"
+  SERVER_PORT: "8085"
