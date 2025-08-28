@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: itgenius-config
 data:
-  DB_URL: "jdbc:mysql://itgeniusdb.cfouo2oco23b.us-east-1.rds.amazonaws.com:3306/itgeniusdb" # update here using Endpoint URL of the RDS DB
+  DB_URL: "jdbc:mysql://itgeniusdb.cfouo2oco23b.us-east-1.rds.amazonaws.com:3306/itgeniusk8sdb" # update here using Endpoint URL of the RDS DB
   SERVER_PORT: "8085"
